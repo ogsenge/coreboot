@@ -15,7 +15,8 @@ chip northbridge/intel/haswell
 		device pci 01.0 on end # PCIe Bridge for discrete graphics
 		device pci 02.0 on # Internal graphics VGA controller
 			subsystemid 0x1849 0x0412
-			register "gfx" = "GMA_STATIC_DISPLAYS(0)"
+			# Desktop: no internal LCD (0x0410) in _DOD, so no LCD0/_BCL and no dangling ^^XBCL reference
+			register "gfx" = "{ .use_spread_spectrum_clock = 0, .ndid = 2, .did = { 0x0100, 0x0240 } }"
 			register "gpu_ddi_e_connected" = "1"
 			register "gpu_dp_b_hotplug" = "4"
 			register "gpu_dp_c_hotplug" = "4"
