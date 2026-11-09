@@ -1,0 +1,14 @@
+# ASRock Z87E-ITX with Infineon SLB9665 TPM 2.0 module on the TPM header
+CONFIG_VENDOR_ASROCK=y
+CONFIG_BOARD_ASROCK_Z87E_ITX=y
+
+# TPM 2.0 family (SLB9665 on the LPC TPM header, TIS at 0xfed40000)
+CONFIG_MAINBOARD_HAS_TPM2=y
+CONFIG_TPM2=y
+
+# Measured boot into the TPM: TPM 2.0 event log format, SHA-256
+CONFIG_TPM_MEASURED_BOOT=y
+CONFIG_TPM_LOG_TPM2=y
+CONFIG_TPM_HASH_SHA256=y
+
+# SeaBIOS payload passes the TPM through to the OS automatically
